@@ -3,9 +3,10 @@ import { missionEvents } from './data/schedule';
 import { EvaluationData, EventCategory, MissionEvent } from './types';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { cn } from './lib/utils';
-import { Play, Pause, X, Calendar, Bell, Plus, ChevronLeft, ChevronRight, LayoutList, CalendarDays } from 'lucide-react';
+import { Play, Pause, X, Calendar, Bell, Plus, ChevronLeft, ChevronRight, LayoutList, CalendarDays, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { downloadICS } from './lib/calendar';
+import AiModule from './ai/AiModule';
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, eachDayOfInterval, addMonths, subMonths, isSameMonth } from 'date-fns';
 
 const categoryClasses: Record<EventCategory, string> = {
@@ -31,6 +32,7 @@ export default function App() {
     category: 'Community',
     location: ''
   });
+  const [isAiModuleOpen, setIsAiModuleOpen] = useState(false);
 
   const [viewMode, setViewMode] = useState<'timeline' | 'calendar'>('timeline');
   const [currentMonth, setCurrentMonth] = useState(() => new Date(2026, 3, 1)); // April 2026
@@ -392,6 +394,16 @@ export default function App() {
 
         <div className="mb-8">
           <div className="text-[12px] uppercase tracking-wider text-theme-text-light mb-3 font-extrabold">
+            Productivity & Planning
+          </div>
+          <button
+             onClick={() => setIsAiModuleOpen(true)}
+             className="w-full py-3 mb-4 rounded-2xl bg-gradient-to-r from-theme-accent to-indigo-500 text-white font-bold hover:-translate-y-0.5 shadow-md active:translate-y-0.5 transition-all flex items-center justify-center gap-2"
+          >
+             <Sparkles className="w-5 h-5 text-white" /> AI OS Organizer
+          </button>
+
+          <div className="text-[12px] uppercase tracking-wider text-theme-text-light mb-3 font-extrabold">
             Sim Controls & Sync
           </div>
           <div className="flex flex-col gap-3 p-4 bg-theme-surface-alt border-4 border-theme-border rounded-3xl text-sm font-bold">
@@ -462,6 +474,12 @@ export default function App() {
               </div>
             </div>
             <div className="flex flex-col gap-2 md:flex-row md:items-center">
+              <button
+                 onClick={() => setIsAiModuleOpen(true)}
+                 className="md:hidden py-3 px-4 rounded-xl bg-gradient-to-r from-theme-accent to-indigo-500 text-white font-bold shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 text-sm"
+              >
+                 <Sparkles className="w-5 h-5" /> AI OS
+              </button>
               <button
                  onClick={() => setIsAddEventOpen(true)}
                  className="md:hidden py-3 px-4 rounded-xl bg-theme-primary text-white font-bold shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 text-sm"
@@ -675,6 +693,32 @@ export default function App() {
       </button>
 
       {/* Mobile Evaluation Modal */}
+      {/* AI OS Organizer Modal */}
+      <AnimatePresence>
+        {isAiModuleOpen && (
+          <div className="fixed inset-0 z-[130] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-theme-text/60 backdrop-blur-sm"
+              onClick={() => setIsAiModuleOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{type: "spring", stiffness: 300, damping: 25}}
+              className="relative z-10 w-full flex justify-center items-center pointer-events-none"
+            >
+              <div className="pointer-events-auto w-full flex justify-center items-center">
+                <AiModule onClose={() => setIsAiModuleOpen(false)} />
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {isEvaluationOpen && (
           <div className="lg:hidden fixed inset-0 z-50 flex items-center justify-center p-4">
