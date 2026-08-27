@@ -1,0 +1,3 @@
+## 2025-08-27 - Icon Button Accessibility
+**Learning:** Missing aria-labels and keyboard focus indicators on interactive icon-only buttons (like `lucide-react` icons wrapping closing/navigating buttons) cause critical screen reader failures and keyboard accessibility issues. Since this app heavily uses utility classes for icon buttons, it is easy to miss out on `aria-label` and `focus-visible:ring` styles.
+**Action:** When adding new icon-only buttons, systematically apply semantic `aria-label`s and `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-[color]` utility classes to ensure accessibility.
