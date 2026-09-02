@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessibility for Icon-only Buttons
+**Learning:** Icon-only buttons without accessible labels fail WCAG requirements because screen readers have no text to announce. Additionally, keyboard users must have a visible focus indicator to know which element is currently focused. Floating Action Buttons (FABs) and modal close icons are frequent culprits that are easily missed.
+**Action:** Always provide an `aria-label` attribute on icon-only buttons detailing their specific action. Additionally, pair this with `focus-visible:ring-*` classes from Tailwind to guarantee a visual outline strictly when accessed via keyboard navigation.
