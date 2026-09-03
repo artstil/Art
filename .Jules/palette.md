@@ -1,0 +1,3 @@
+## 2025-03-05 - Missing Screen Reader Context & Focus states on Icon-only controls
+**Learning:** Found multiple instances where critical interactive elements like floating action buttons (FABs), modal close buttons, and pagination controls were strictly icon-based without any `aria-label` or visible focus state. This creates significant accessibility barriers for screen reader users (who hear nothing or just generic "button") and keyboard navigators (who cannot clearly see where their focus is).
+**Action:** Always ensure that icon-only interactive controls (like `<button>`, `<a>`) include descriptive `aria-label`s and clear visual focus indicators (e.g., `focus-visible:ring-2`) to guarantee both proper screen reader context and visible keyboard navigation paths.
