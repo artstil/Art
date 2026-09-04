@@ -1,0 +1,3 @@
+## 2025-03-01 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** Found an accessibility issue pattern in `src/App.tsx` where several icon-only buttons (like navigation arrows and modal close buttons) lacked `aria-label` attributes and visible focus rings. This makes them invisible to screen readers and difficult to interact with via keyboard.
+**Action:** Added `aria-label` and focus styling (`focus:outline-none focus-visible:ring-2 focus-visible:ring-theme-primary`) to these buttons. In future changes, always check icon-only interactive elements for proper ARIA labels and keyboard focus states.
