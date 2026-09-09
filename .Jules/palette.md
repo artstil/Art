@@ -1,0 +1,3 @@
+## 2024-05-18 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** Icon-only buttons (like modal close buttons, carousel navigation, or floating action buttons) often get overlooked for accessibility because their visual meaning is obvious to sighted users. However, without text or `aria-label`, screen readers just announce "button", leaving users confused about the action they are taking. We also need to add focus states (like `focus-visible:ring-2`) to ensure keyboard navigators can see which element has focus.
+**Action:** When adding an icon inside a `<button>` without any visible text, ALWAYS add an `aria-label` and `title` attribute. Furthermore, always verify `focus-visible` styling is present for keyboard navigation support.
