@@ -1,0 +1,3 @@
+## 2024-05-18 - Missing ARIA Labels on Icon-only Elements
+**Learning:** Found a common pattern in the app's components where icon-only buttons (like calendar navigation, close buttons for modals, and the main mobile floating action button) lack ARIA labels. This makes these interactive elements inaccessible to screen readers. Also noticed missing clear focus outlines for keyboard navigation on these buttons.
+**Action:** When implementing new UI elements or refactoring existing ones, always ensure that buttons containing only icons receive descriptive `aria-label` attributes and visible focus states (e.g., using Tailwind's `focus-visible:ring-2`).
