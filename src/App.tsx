@@ -256,8 +256,8 @@ export default function App() {
       <div className="bg-white rounded-[2rem] p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-theme-border flex flex-col h-full lg:mr-8 mb-24 lg:mb-0 max-w-full overflow-y-auto min-h-[500px]">
          <div className="flex justify-between items-center mb-6">
            <div className="flex gap-2">
-             <button onClick={prevMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95"><ChevronLeft className="w-5 h-5"/></button>
-             <button onClick={nextMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95"><ChevronRight className="w-5 h-5"/></button>
+             <button aria-label="Previous month" onClick={prevMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95 focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none"><ChevronLeft className="w-5 h-5"/></button>
+             <button aria-label="Next month" onClick={nextMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95 focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none"><ChevronRight className="w-5 h-5"/></button>
            </div>
            
            <h2 className="text-lg md:text-2xl font-display font-bold text-theme-text">{format(currentMonth, 'MMMM yyyy')}</h2>
@@ -515,8 +515,9 @@ export default function App() {
               <span className="text-xl font-display font-bold text-theme-primary">{formatTime12Hour(currentSimTimeFormatted)}</span>
             </div>
             <button 
+              aria-label={isPlaying ? "Pause simulation" : "Play simulation"}
               onClick={() => setIsPlaying(!isPlaying)}
-              className="py-2.5 px-6 rounded-xl border-b-4 border-t-2 border-x-2 border-theme-primary bg-white text-theme-primary font-bold active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2"
+              className="py-2.5 px-6 rounded-xl border-b-4 border-t-2 border-x-2 border-theme-primary bg-white text-theme-primary font-bold active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none"
             >
               {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
             </button>
@@ -665,8 +666,9 @@ export default function App() {
 
       {/* Floating Action Button (Mobile evaluation trigger) */}
       <button 
+        aria-label="Open daily diary"
         onClick={() => handleOpenEvaluation(`${simDate}-eval`, evaluations[`${simDate}-eval`]?.content)}
-        className="lg:hidden fixed bottom-6 right-6 w-16 h-16 bg-theme-accent text-white rounded-full flex items-center justify-center shadow-[0_8px_20px_rgba(99,102,241,0.4)] border-4 border-white z-50 cursor-pointer hover:scale-110 active:scale-95 transition-all"
+        className="lg:hidden fixed bottom-6 right-6 w-16 h-16 bg-theme-accent text-white rounded-full flex items-center justify-center shadow-[0_8px_20px_rgba(99,102,241,0.4)] border-4 border-white z-50 cursor-pointer hover:scale-110 active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 20h9"/>
@@ -696,7 +698,7 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <span className="text-xl">📝</span> Daily Diary
                 </h2>
-                <button onClick={() => setIsEvaluationOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
+                <button aria-label="Close diary" onClick={() => setIsEvaluationOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none">
                   <X className="w-5 h-5 stroke-2" />
                 </button>
               </div>
@@ -744,7 +746,7 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <span className="text-xl">✨</span> Create New Event
                 </h2>
-                <button onClick={() => setIsAddEventOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
+                <button aria-label="Close new event" onClick={() => setIsAddEventOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none">
                   <X className="w-5 h-5 stroke-2" />
                 </button>
               </div>
@@ -872,7 +874,7 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <Calendar className="w-5 h-5" /> Event Details
                 </h2>
-                <button onClick={() => setSelectedEventDetails(null)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
+                <button aria-label="Close event details" onClick={() => setSelectedEventDetails(null)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:ring-theme-primary focus-visible:outline-none">
                   <X className="w-5 h-5 stroke-2" />
                 </button>
               </div>
