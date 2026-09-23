@@ -1,0 +1,3 @@
+## 2025-03-01 - Missing ARIA Labels on Icon-Only Buttons
+**Learning:** Found a recurring pattern in the codebase where floating action buttons (FABs), modal close actions, and small control elements (like play/pause and calendar navigation) were missing `aria-label`s, making them invisible to screen readers, while also lacking proper focus styles for keyboard users.
+**Action:** When adding new interactive components, particularly modals or mobile-specific controls, always verify that icon-only buttons include descriptive `aria-label` attributes and appropriate `focus-visible` utility classes to maintain keyboard and screen reader accessibility.
