@@ -1,0 +1,3 @@
+## 2024-05-26 - [Interactive Focus Elements in React Motion Modals]
+**Learning:** Adding `focus-visible` outline styles to close buttons within Framer Motion nested modal components works smoothly, but it requires careful attention to the background contrast, especially around dynamically inserted elements like SVG paths inside transparent buttons. Ensuring high-contrast ring colors (like `ring-theme-primary` on white cards or `ring-white` on dark cards) significantly improves visual keyboard tracking.
+**Action:** Always test `focus-visible` interactions in multiple responsive viewports (especially on elements like the mobile Diary FAB) and against their respective parent container background color.
