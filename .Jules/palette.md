@@ -1,0 +1,3 @@
+## 2024-04-12 - Icon-only buttons accessibility pattern
+**Learning:** Found multiple icon-only interactive elements (like modal close buttons, timeline navigation controls, and mobile floating action buttons) lacking programmatic names, which impairs screen reader usability, and relying purely on browser default focus which may be obscured.
+**Action:** Always verify if an interactive element has visible text. If not, supply an `aria-label`. Further, enforce distinct focus indicators on these interactive elements consistently using utility classes (`focus-visible:ring-2 focus-visible:outline-none`) to comply with WCAG standards for keyboard navigability.
