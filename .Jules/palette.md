@@ -1,0 +1,3 @@
+## 2025-03-05 - Playwright UI verification
+**Learning:** Verified a UX accessibility change using a complete video recording that interacts with a modal (triggering focus state visibility). We learned that because Playwright requires visibility of elements to interact, testing responsive mobile-oriented components like the mobile FAB or modals on small screens required setting the correct viewport size or explicitly toggling states (like "Calendar view" -> "Timeline view") to allow elements to load fully.
+**Action:** Always include explicit wait timeouts after toggling view states in the app before trying to focus child components in Playwright scripts, as the CSS transition delays can cause locator failures.
