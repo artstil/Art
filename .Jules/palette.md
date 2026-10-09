@@ -1,0 +1,3 @@
+## 2024-05-18 - A11y Focus Rings for Floating and Icon Buttons
+**Learning:** Floating action buttons and subtle icon-only actions (like month navigation and modal close buttons) often lack focus states and aria-labels out of the box in this project's component patterns. When relying on Tailwind, standard focus rings can sometimes be clipped or feel disconnected if the element's outline isn't reset.
+**Action:** Always apply `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary` to ensure keyboard navigation visibility while preserving native styling. Additionally, always complement them with `aria-label` attributes to ensure screen readers announce them properly instead of skipping them.
