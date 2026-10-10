@@ -1,0 +1,3 @@
+## 2026-10-10 - Accessible Icon Buttons
+**Learning:** Icon-only buttons (like calendar navigation, floating action buttons, and modal close buttons) consistently missed critical accessibility features like `aria-label`, `focus-visible` indicators, and `aria-hidden` on internal SVGs, making them difficult to use for keyboard navigators and screen readers.
+**Action:** Applied standard accessibility classes (`focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary`), `aria-label` descriptors, and `aria-hidden="true"` on SVGs to all icon-only buttons. We must ensure all future icon-only buttons include these properties.
