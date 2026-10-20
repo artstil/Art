@@ -1,0 +1,3 @@
+## 2024-03-24 - Custom Button Focus Styles
+**Learning:** Custom Tailwind button styles (like background resets, custom padding, borders) often suppress the browser's default focus ring. Furthermore, icon-only buttons need explicit ARIA labels for accessibility. Simply relying on the browser defaults is insufficient when building heavily styled interfaces.
+**Action:** Always explicitly append `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary` (or a similar visual equivalent) and `aria-label`s to custom icon-only buttons to ensure they remain keyboard accessible and understandable to screen readers.
