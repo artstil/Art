@@ -1,0 +1,4 @@
+## 2026-10-21 - Icon-Only Buttons Accessibility
+
+**Learning:** When using custom UI elements or icon-only buttons (like Lucide icons wrapped in `<button>` tags), developers often forget to add `aria-label`s and `aria-hidden="true"` to the inner SVGs, leading to poor screen reader experiences. Furthermore, overriding default browser outlines without replacing them with `focus-visible` ring styles breaks keyboard navigation accessibility for these critical interaction elements.
+**Action:** Always verify that icon-only buttons have descriptive `aria-label`s, their internal icons are hidden from screen readers, and they feature explicit `focus-visible` styling (e.g., `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary`) to ensure both visual keyboard accessibility and proper semantic meaning.
