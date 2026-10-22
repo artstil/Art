@@ -1,0 +1,3 @@
+## 2024-03-20 - Icon-only Button Accessibility
+**Learning:** Found a pattern across the application where icon-only buttons (like calendar navigation, mobile controls, and modal close buttons) lacked both screen reader text and visual focus indicators, hindering both keyboard navigation and accessibility.
+**Action:** When implementing icon-only buttons, always ensure they are paired with a descriptive `aria-label`, have a clear `focus-visible` ring using Tailwind classes (e.g., `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary`), and set the internal SVG to `aria-hidden="true"` to prevent double-reading by screen readers.
