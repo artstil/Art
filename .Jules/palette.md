@@ -1,0 +1,3 @@
+## 2026-10-26 - Icon-Only Button Accessibility Pattern
+**Learning:** When using icon-only buttons (like Lucide icons or custom SVGs) as the primary interactive element without visible text, screen readers may announce confusing or redundant names if the icons aren't explicitly hidden.
+**Action:** Always include an `aria-label` on the `<button>` itself for screen readers to describe the action, and explicitly add `aria-hidden="true"` to the internal `<svg>` or icon component to prevent double-reading. Additionally, ensure proper keyboard accessibility by adding a distinct `focus-visible` style using existing theme classes (e.g., `focus-visible:ring-theme-primary`).
