@@ -1,0 +1,3 @@
+## 2024-05-19 - Accessible Icon-Only Buttons
+**Learning:** Found an accessibility issue pattern across this app's components regarding icon-only buttons. Many of them lack `aria-label` attributes for screen readers, lack `aria-hidden="true"` on the enclosed SVGs to prevent double-reading, and miss explicit `focus-visible` styling essential for keyboard navigation visibility.
+**Action:** Applied a reusable UX pattern: adding `aria-label`, standard `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary` styling to the buttons, and `aria-hidden="true"` to the inner icons/SVGs.
