@@ -256,8 +256,8 @@ export default function App() {
       <div className="bg-white rounded-[2rem] p-4 md:p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-theme-border flex flex-col h-full lg:mr-8 mb-24 lg:mb-0 max-w-full overflow-y-auto min-h-[500px]">
          <div className="flex justify-between items-center mb-6">
            <div className="flex gap-2">
-             <button onClick={prevMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95"><ChevronLeft className="w-5 h-5"/></button>
-             <button onClick={nextMonth} className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95"><ChevronRight className="w-5 h-5"/></button>
+             <button onClick={prevMonth} aria-label="Previous month" className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary"><ChevronLeft className="w-5 h-5" aria-hidden="true" /></button>
+             <button onClick={nextMonth} aria-label="Next month" className="p-2.5 md:p-3 bg-theme-bg rounded-xl hover:bg-theme-border border-2 border-theme-border transition-colors active:scale-95 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary"><ChevronRight className="w-5 h-5" aria-hidden="true" /></button>
            </div>
            
            <h2 className="text-lg md:text-2xl font-display font-bold text-theme-text">{format(currentMonth, 'MMMM yyyy')}</h2>
@@ -440,9 +440,10 @@ export default function App() {
             </div>
             <button 
               onClick={() => setIsPlaying(!isPlaying)}
-              className="mt-2 py-2 rounded-xl border-b-4 border-l-2 border-r-2 border-t-2 border-theme-primary bg-theme-primary/10 text-theme-primary font-bold hover:translate-y-0.5 hover:border-b-2 active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2"
+              aria-label={isPlaying ? "Pause auto play" : "Play auto play"}
+              className="mt-2 py-2 rounded-xl border-b-4 border-l-2 border-r-2 border-t-2 border-theme-primary bg-theme-primary/10 text-theme-primary font-bold hover:translate-y-0.5 hover:border-b-2 active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary"
             >
-              {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              {isPlaying ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4" aria-hidden="true" />}
               {isPlaying ? "PAUSE" : "PLAY AUTO"}
             </button>
           </div>
@@ -516,9 +517,10 @@ export default function App() {
             </div>
             <button 
               onClick={() => setIsPlaying(!isPlaying)}
-              className="py-2.5 px-6 rounded-xl border-b-4 border-t-2 border-x-2 border-theme-primary bg-white text-theme-primary font-bold active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2"
+              aria-label={isPlaying ? "Pause time simulation" : "Play time simulation"}
+              className="py-2.5 px-6 rounded-xl border-b-4 border-t-2 border-x-2 border-theme-primary bg-white text-theme-primary font-bold active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary"
             >
-              {isPlaying ? <Pause className="w-5 h-5 fill-current" /> : <Play className="w-5 h-5 fill-current" />}
+              {isPlaying ? <Pause className="w-5 h-5 fill-current" aria-hidden="true" /> : <Play className="w-5 h-5 fill-current" aria-hidden="true" />}
             </button>
           </div>
         )}
@@ -696,8 +698,8 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <span className="text-xl">📝</span> Daily Diary
                 </h2>
-                <button onClick={() => setIsEvaluationOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
-                  <X className="w-5 h-5 stroke-2" />
+                <button onClick={() => setIsEvaluationOpen(false)} aria-label="Close evaluation" className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary">
+                  <X className="w-5 h-5 stroke-2" aria-hidden="true" />
                 </button>
               </div>
               
@@ -744,8 +746,8 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <span className="text-xl">✨</span> Create New Event
                 </h2>
-                <button onClick={() => setIsAddEventOpen(false)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
-                  <X className="w-5 h-5 stroke-2" />
+                <button onClick={() => setIsAddEventOpen(false)} aria-label="Close add event" className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary">
+                  <X className="w-5 h-5 stroke-2" aria-hidden="true" />
                 </button>
               </div>
               
@@ -872,8 +874,8 @@ export default function App() {
                 <h2 className="text-lg font-display font-bold text-theme-text flex items-center gap-2">
                   <Calendar className="w-5 h-5" /> Event Details
                 </h2>
-                <button onClick={() => setSelectedEventDetails(null)} className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors">
-                  <X className="w-5 h-5 stroke-2" />
+                <button onClick={() => setSelectedEventDetails(null)} aria-label="Close event details" className="bg-white rounded-full p-2 text-theme-text-light hover:text-theme-accent hover:bg-theme-border transition-colors focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary">
+                  <X className="w-5 h-5 stroke-2" aria-hidden="true" />
                 </button>
               </div>
               

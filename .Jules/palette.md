@@ -1,0 +1,3 @@
+## 2024-03-24 - Missing ARIA Labels on Icon Buttons
+**Learning:** Found multiple icon-only buttons (like ChevronLeft/Right for month navigation, X for close dialogs, Play/Pause for sim controls) in `src/App.tsx` that lack `aria-label` attributes. This makes them inaccessible to screen reader users who won't know what these buttons do. Also found that keyboard accessibility could be improved on these interactive elements by adding `focus-visible` styles to help users know which element has focus.
+**Action:** Will add descriptive `aria-label`s to all icon-only buttons and ensure they have `focus-visible` styling (`focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary`) to improve both screen reader experience and keyboard navigation.
