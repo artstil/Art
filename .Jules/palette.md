@@ -1,0 +1,3 @@
+## 2023-10-24 - Accessibility on Icon-Only UI Elements
+**Learning:** Icon-only buttons (common in Modals and Calendar controls) often miss ARIA labels, creating silent barriers for screen reader users. Furthermore, relying only on pointer events ignores keyboard-first navigation where clear focus rings are necessary.
+**Action:** When auditing or building custom interactive elements, always pair internal SVG icons with `aria-hidden="true"`, provide descriptive `aria-label`s on their parent interactive element (button or link), and enforce visual focus indicators via `focus-visible` to support both assistive technologies and keyboard users.
