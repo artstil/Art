@@ -1,0 +1,3 @@
+## 2024-04-18 - Icon-only buttons accessibility pattern
+**Learning:** Icon-only buttons (like Prev/Next Month, Play/Pause Simulation, Floating Action Buttons, Modal Closes) frequently lack accessible names and rely solely on visual cues. They also require explicit `focus-visible` styling (since native browser focus can often be cut off by `overflow: hidden` or custom borders in mobile layouts).
+**Action:** Always add descriptive `aria-label` to icon buttons and `aria-hidden="true"` to their internal SVGs. Always use `focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-theme-primary` (or a color variant matching the UI) to ensure clear keyboard navigation.
